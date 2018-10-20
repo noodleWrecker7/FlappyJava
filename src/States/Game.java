@@ -1,8 +1,8 @@
 package States;
 
-import java.awt.Graphics2D;
-import java.awt.Graphics;
-import java.awt.Canvas;
+import Entities.Player;
+
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
@@ -11,31 +11,35 @@ import static java.awt.Color.*;
 
 public class Game extends Canvas {
 
+    public static final int fps = 25;
     private int x, y;
     private int w, h;
+    Player player = new Player(50, 50);
 
     public Game() {
-        this.x = 0;
-        this.y = 0;
-        this.w = 50;
-        this.h = 50;
-
 
     }
 
     public void paint(Graphics g) {
-        w++;
-        h++;
-        g.setColor(red);
-        g.fillRect(x, y, w, h);
+
+        g.setColor(green);
+        g.fillRect(0, 0, this.getWidth(), 200);
+        g.fillRect(0, 400, this.getWidth(), 200);
+        player.render(g);
 
     }
 
-    public void keyDown(char e) {
+    public void update(Graphics g) {
+        paint(g);
+    }
+
+    public void keyDown(int e) {
 
     }
-    public void keyUp(char e) {
+    public void keyUp(int e) {
+        if(e == 32) {
 
+        }
     }
 
     public static void main(String args[]) {

@@ -13,9 +13,9 @@ import java.util.TimerTask;
 public class Main {
 
 
-    public static Game game = new Game();
+    private static Game game = new Game();
     public static Menu menu = new Menu();
-    public static final int fps = 25;
+    public static final int fps = Game.fps;
 
     public static void main(String args[]) {
         boolean inGame = true;
@@ -36,12 +36,12 @@ public class Main {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                game.keyDown(e.getKeyChar());
+                game.keyDown(e.getKeyCode());
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                game.keyUp(e.getKeyChar());
+                game.keyUp(e.getKeyCode());
             }
         });
 
