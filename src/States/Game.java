@@ -11,7 +11,7 @@ import static java.awt.Color.*;
 
 public class Game extends Canvas {
 
-    public static final int fps = 25;
+    public static final int fps = 30;
     private int x, y;
     private int w, h;
     Player player = new Player(50, 50);
@@ -19,9 +19,9 @@ public class Game extends Canvas {
 
     public Game(int width, int height) {
         this.setSize(width, height); // this is so the definition below can get the dimensions of itself
-        top = new Rect(0, 0, this.getWidth(), 200, green);
-        bottom = new Rect(0, 400, this.getWidth(), 200, green);
-        mid = new Rect(0, 200, this.getWidth(), 200, gray);
+        top = new Rect(0, 0, this.getWidth(), 100, green);
+        bottom = new Rect(0, 500, this.getWidth(), 100, green);
+        mid = new Rect(0, 100, this.getWidth(), 400, gray);
     }
 
     public void paint(Graphics g) {
