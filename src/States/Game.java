@@ -25,6 +25,8 @@ public class Game extends Canvas {
     }
 
     public void paint(Graphics g) {
+        player.update();
+
         top.render(g);
         bottom.render(g);
         mid.render(g);
@@ -42,10 +44,9 @@ public class Game extends Canvas {
     }
     public void keyUp(int e) {
         if(e == 32) {
-
+            player.jump();
         }
     }
-
 }
 
 class Rect {
