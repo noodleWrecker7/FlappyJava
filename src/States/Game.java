@@ -15,16 +15,20 @@ public class Game extends Canvas {
     private int x, y;
     private int w, h;
     Player player = new Player(50, 50);
+    Rect top, bottom, mid;
 
-    public Game() {
-
+    public Game(int width, int height) {
+        this.setSize(width, height); // this is so the definition below can get the dimensions of itself
+        top = new Rect(0, 0, this.getWidth(), 200, green);
+        bottom = new Rect(0, 400, this.getWidth(), 200, green);
+        mid = new Rect(0, 200, this.getWidth(), 200, gray);
     }
 
     public void paint(Graphics g) {
+        top.render(g);
+        bottom.render(g);
+        mid.render(g);
 
-        g.setColor(green);
-        g.fillRect(0, 0, this.getWidth(), 200);
-        g.fillRect(0, 400, this.getWidth(), 200);
         player.render(g);
 
     }
@@ -42,8 +46,23 @@ public class Game extends Canvas {
         }
     }
 
-    public static void main(String args[]) {
+}
 
+class Rect {
+
+    int x, y, w, h;
+    Color colour;
+
+    Rect(int x, int y, int w, int h, Color c){
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.colour = c;
     }
 
+    void render(Graphics g) {
+        g.setColor(colour);
+        g.fillRect(this.x, this.y, this.w, this.h);
+    }
 }

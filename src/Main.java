@@ -13,7 +13,7 @@ import java.util.TimerTask;
 public class Main {
 
 
-    private static Game game = new Game();
+    private static Game game = new Game(400, 600);
     public static Menu menu = new Menu();
     public static final int fps = Game.fps;
 
@@ -21,7 +21,6 @@ public class Main {
         boolean inGame = true;
         JFrame frame = new JFrame("Title");
 
-        game.setSize(400, 600);
         frame.add(game);
         frame.pack();
         frame.setVisible(true);
