@@ -50,8 +50,8 @@ public class Game extends Canvas {
 
 class Rect {
 
-    int x, y, w, h;
-    Color colour;
+    private int x, y, w, h;
+    private Color colour;
 
     Rect(int x, int y, int w, int h, Color c){
         this.x = x;
