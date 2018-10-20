@@ -11,9 +11,7 @@ import static java.awt.Color.*;
 
 public class Game extends Canvas {
 
-    public static final int fps = 30;
-    private int x, y;
-    private int w, h;
+    public static final int fps = 15;
     Player player = new Player(50, 50);
     Rect top, bottom, mid;
 
@@ -25,7 +23,7 @@ public class Game extends Canvas {
     }
 
     public void paint(Graphics g) {
-        player.update();
+        player.update(this);
 
         top.render(g);
         bottom.render(g);
@@ -47,6 +45,7 @@ public class Game extends Canvas {
             player.jump();
         }
     }
+
 }
 
 class Rect {

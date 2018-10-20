@@ -20,7 +20,7 @@ public class Player {
         this.w = width;
         this.h = height;
         this.ySpeed = 0;
-        this.jumpSpeed = -20;
+        this.jumpSpeed = -15;
 
     }
 
@@ -28,13 +28,17 @@ public class Player {
         this.ySpeed = jumpSpeed;
     }
 
-    public void update(){
+    public void update(Game f){
         this.y += this.ySpeed;
         this.ySpeed += g; // gravity
+        collision(f);
     }
 
-    public void collision(){
-
+    public void collision(Game f){
+        if(this.y < 0 || this.y + this.h > f.getHeight()){
+            this.ySpeed = 0;
+            this.y = f.getHeight() - this.h;
+        }
     }
 
     public void render(Graphics g) {
