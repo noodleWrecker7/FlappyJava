@@ -4,18 +4,16 @@ import Entities.Player;
 import Entities.Tube;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import javax.swing.JFrame;
 
 import static java.awt.Color.*;
 
 public class Game extends Canvas {
 
     public static final int fps = 15;
-    Player player = new Player(50, 50);
-    Rect top, bottom, mid;
-    Tube tube = null;
+    private int score = 0;
+    private Player player = new Player(50, 50);
+    private Rect top, bottom, mid;
+    private Tube tube = null;
 
     public Game(int width, int height) {
         this.setSize(width, height); // this is so the definition below can get the dimensions of itself
@@ -35,18 +33,34 @@ public class Game extends Canvas {
         manageTubes(g);
 
         player.render(g);
+        g.drawString(Integer.toString(score), 25, 25);
 
     }
 
-    public void manageTubes(Graphics g) {
-        if(tube != null) {
+    private void manageTubes(Graphics g) {
+        if (tube != null) {
             tube.render(g);
-            if(tube.offScreen()) {
-                tube = null;
+            if (tube.offScreen()) {
+                tube = new Tube(this);
+                score ++;
             }
         } else {
             tube = new Tube(this);
         }
+    }
+
+    public boolean collideTube() {
+        boolean b = false;
+        if (player.getX() < tube.getX() + tube.getWidth() && player.getX() + player.getWidth() > tube.getX()) {
+            if (player.getY() < tube.getTop() || player.getY() + player.getHeight() > tube.getBottom()) {
+                b = true;
+            }
+        }
+        return b;
+    }
+
+    public int getScore() {
+        return score;
     }
 
     public void update(Graphics g) {

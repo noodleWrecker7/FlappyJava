@@ -14,8 +14,8 @@ public class Main {
 
 
     private static Game game = new Game(400, 600);
-    public static Menu menu = new Menu();
-    public static final int fps = Game.fps;
+    private static Menu menu = new Menu(400, 600);
+    private static final int fps = Game.fps;
 
     public static void main(String args[]) {
         boolean inGame = true;
@@ -49,12 +49,16 @@ public class Main {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (inGame) {
-                    game.repaint();
+
+                game.repaint();
+                if (game.collideTube()) {
+                    frame.remove(game);
+                    frame.add(menu);
+                    menu.setScore(game.getScore());
+                    menu.repaint();
+                    timer.cancel();
                 }
             }
-        }, 1000, 1000/fps);
-
-
+        }, 1000, 1000 / fps);
     }
 }
