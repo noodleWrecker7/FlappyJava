@@ -22,5 +22,4 @@ public class Menu extends Canvas {
         g.drawString("GAME OVER", 150, 250);
         g.drawString("YOU SCORED: " + s, 150, 300);
     }
-
 }

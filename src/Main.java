@@ -10,21 +10,20 @@ import java.util.TimerTask;
 
 class Main {
 
-
-    private static final Game game = new Game(400, 600);
-    private static final Menu menu = new Menu(400, 600);
-    private static final int fps = Game.fps;
+    private static final Game GAME = new Game(400, 600);
+    private static final Menu MENU = new Menu(400, 600);
+    private static final int FPS = Game.FPS;
 
     public static void main(String args[]) {
         JFrame frame = new JFrame("Title");
 
-        frame.add(game);
+        frame.add(GAME);
         frame.pack();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 
-        game.addKeyListener(new KeyListener() {
+        GAME.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
                 // irrelevant
@@ -32,7 +31,7 @@ class Main {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                game.keyDown(e.getKeyCode());
+                GAME.keyDown(e.getKeyCode());
             }
 
             @Override
@@ -46,16 +45,16 @@ class Main {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                game.createBufferStrategy(2);
-                game.repaint();
-                if (game.collideTube()) {
-                    frame.remove(game);
-                    frame.add(menu);
-                    menu.setScore(game.getScore());
-                    menu.repaint();
+                GAME.createBufferStrategy(2);
+                GAME.repaint();
+                if (GAME.collideTube()) {
+                    frame.remove(GAME);
+                    frame.add(MENU);
+                    MENU.setScore(GAME.getScore());
+                    MENU.repaint();
                     timer.cancel();
                 }
             }
-        }, 1000, 1000 / fps);
+        }, 1000, 1000 / FPS);
     }
 }
