@@ -1,0 +1,8 @@
+
+*.class
+
+*.iml
+
+*.xml
+
+out/production/FlappyJava/manifest\.txt
