@@ -28,17 +28,17 @@ public class Main {
         game.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                // not needed
+                // irrelevant
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
-
+                game.keyDown(e.getKeyCode());
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                game.keyUp(e.getKeyCode());
+                // irrelevant
             }
         });
 
