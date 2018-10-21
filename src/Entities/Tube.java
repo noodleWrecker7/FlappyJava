@@ -11,7 +11,8 @@ public class Tube {
 
     private static final int WIDTH = 75;
     private static final int SPEED = 2;
-    private int xLeft, topHeight, yBottom;
+    private int xLeft;
+    private final int topHeight, yBottom;
 
     public Tube(Game f) {
         Random rand = new Random();

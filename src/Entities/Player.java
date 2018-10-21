@@ -12,8 +12,7 @@ public class Player {
     private int y;
     private final int w, h, jumpSpeed;
     private final float g;
-    private float accSpeed, ySpeed;
-    private static final int fps = Game.fps;
+    private float ySpeed;
 
 
     public Player(int width, int height) {

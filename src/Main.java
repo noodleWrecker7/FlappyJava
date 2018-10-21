@@ -8,15 +8,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class Main {
+class Main {
 
 
-    private static Game game = new Game(400, 600);
-    private static Menu menu = new Menu(400, 600);
-    private static final int fps = game.fps;
+    private static final Game game = new Game(400, 600);
+    private static final Menu menu = new Menu(400, 600);
+    private static final int fps = Game.fps;
 
     public static void main(String args[]) {
-        boolean inGame = true;
         JFrame frame = new JFrame("Title");
 
         frame.add(game);

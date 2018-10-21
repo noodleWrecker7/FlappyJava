@@ -11,15 +11,15 @@ public class Game extends Canvas {
 
     public static final int fps = 45;
     private int score = 0;
-    private Player player = new Player(50, 50);
-    private Rect top, bottom, mid;
+    private final Player player = new Player(50, 50);
+    private final Rect top, bottom, mid;
     private Tube tube = null;
 
     public Game(int width, int height) {
         this.setSize(width, height); // this is so the definition below can get the dimensions of itself
-        top = new Rect(0, 0, this.getWidth(), 100, green);
-        bottom = new Rect(0, 500, this.getWidth(), 100, green);
-        mid = new Rect(0, 100, this.getWidth(), 400, gray);
+        top = new Rect(0, this.getWidth(), 100, green);
+        bottom = new Rect(500, this.getWidth(), 100, green);
+        mid = new Rect(100, this.getWidth(), 400, gray);
 
 
     }
@@ -44,7 +44,7 @@ public class Game extends Canvas {
             tube.render(g);
             if (tube.offScreen()) {
                 tube = new Tube(this);
-                score ++;
+                score++;
             }
         } else {
             tube = new Tube(this);
@@ -78,11 +78,11 @@ public class Game extends Canvas {
 
 class Rect {
 
-    private int x, y, w, h;
-    private Color colour;
+    private final int x, y, w, h;
+    private final Color colour;
 
-    Rect(int x, int y, int w, int h, Color c) {
-        this.x = x;
+    Rect(int y, int w, int h, Color c) {
+        this.x = 0;
         this.y = y;
         this.w = w;
         this.h = h;
