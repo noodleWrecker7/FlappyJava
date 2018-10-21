@@ -10,7 +10,7 @@ import static java.awt.Color.blue;
 public class Tube {
 
     private static final int WIDTH = 75;
-    private static final int SPEED = 5;
+    private static final int SPEED = 2;
     private int xLeft, topHeight, yBottom;
 
     public Tube(Game f) {

@@ -9,7 +9,7 @@ import static java.awt.Color.*;
 
 public class Game extends Canvas {
 
-    public static final int fps = 15;
+    public static final int fps = 45;
     private int score = 0;
     private Player player = new Player(50, 50);
     private Rect top, bottom, mid;
@@ -20,6 +20,7 @@ public class Game extends Canvas {
         top = new Rect(0, 0, this.getWidth(), 100, green);
         bottom = new Rect(0, 500, this.getWidth(), 100, green);
         mid = new Rect(0, 100, this.getWidth(), 400, gray);
+
 
     }
 
@@ -34,6 +35,7 @@ public class Game extends Canvas {
 
         player.render(g);
         g.drawString(Integer.toString(score), 25, 25);
+        //repaint();
 
     }
 

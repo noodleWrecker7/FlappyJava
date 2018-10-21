@@ -9,18 +9,20 @@ import static java.awt.Color.*;
 public class Player {
 
     private final int x = 75;
-    private int y, ySpeed;
-    private final int g, w, h, jumpSpeed;
+    private int y;
+    private final int w, h, jumpSpeed;
+    private final float g;
+    private float accSpeed, ySpeed;
     private static final int fps = Game.fps;
 
 
     public Player(int width, int height) {
         this.y = 250;
-        this.g = 1;
+        this.g = 0.15f;
         this.w = width;
         this.h = height;
         this.ySpeed = 0;
-        this.jumpSpeed = -15;
+        this.jumpSpeed = -6;
 
     }
 
@@ -35,9 +37,13 @@ public class Player {
     }
 
     private void collision(Game f) {
-        if (this.y < 0 || this.y + this.h > f.getHeight()) {
+        if (this.y + this.h > f.getHeight()) {
             this.ySpeed = 0;
             this.y = f.getHeight() - this.h;
+        }
+        if (this.y < 0) {
+            this.ySpeed = 0;
+            this.y = 0;
         }
     }
 
