@@ -53,7 +53,7 @@ public class Player {
     }
 
     public int getX() {
-        return this.X;
+        return X;
     }
 
     public int getHeight() {
@@ -62,6 +62,6 @@ public class Player {
 
     public void render(Graphics g) {
         g.setColor(red);
-        g.fillRect(this.X, this.y, this.W, this.H);
+        g.fillRect(X, this.y, this.W, this.H);
     }
 }
