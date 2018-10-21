@@ -22,7 +22,7 @@ public class Player {
         this.w = width;
         this.h = height;
         this.ySpeed = 0;
-        this.jumpSpeed = -6;
+        this.jumpSpeed = -5;
 
     }
 

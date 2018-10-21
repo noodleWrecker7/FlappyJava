@@ -16,8 +16,8 @@ public class Tube {
     public Tube(Game f) {
         Random rand = new Random();
         this.xLeft = f.getWidth();
-        int yGap = rand.nextInt(130) + 145;
-        this.topHeight = rand.nextInt(225) + 75;
+        int yGap = rand.nextInt(120) + 150;
+        this.topHeight = rand.nextInt(230) + 75;
         this.yBottom = topHeight + yGap;
     }
 
