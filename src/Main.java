@@ -1,8 +1,6 @@
 import States.Game;
 import States.Menu;
 
-import java.awt.Canvas;
-import java.awt.Graphics;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -13,7 +11,7 @@ import java.util.TimerTask;
 public class Main {
 
 
-    private static Game game = new Game(400, 600);
+    private static Game Game = new Game(400, 600);
     private static Menu menu = new Menu(400, 600);
     private static final int fps = Game.fps;
 
@@ -21,13 +19,13 @@ public class Main {
         boolean inGame = true;
         JFrame frame = new JFrame("Title");
 
-        frame.add(game);
+        frame.add(Game);
         frame.pack();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 
-        game.addKeyListener(new KeyListener() {
+        Game.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
                 // not needed
@@ -35,12 +33,12 @@ public class Main {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                game.keyDown(e.getKeyCode());
+                Game.keyDown(e.getKeyCode());
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                game.keyUp(e.getKeyCode());
+                Game.keyUp(e.getKeyCode());
             }
         });
 
@@ -50,11 +48,11 @@ public class Main {
             @Override
             public void run() {
 
-                game.repaint();
-                if (game.collideTube()) {
-                    frame.remove(game);
+                Game.repaint();
+                if (Game.collideTube()) {
+                    frame.remove(Game);
                     frame.add(menu);
-                    menu.setScore(game.getScore());
+                    menu.setScore(Game.getScore());
                     menu.repaint();
                     timer.cancel();
                 }
