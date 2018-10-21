@@ -33,7 +33,7 @@ public class Main {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                Game.keyDown(e.getKeyCode());
+
             }
 
             @Override

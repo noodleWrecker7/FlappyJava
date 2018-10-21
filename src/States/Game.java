@@ -67,10 +67,6 @@ public class Game extends Canvas {
         paint(g);
     }
 
-    public void keyDown(int e) {
-
-    }
-
     public void keyUp(int e) {
         if (e == 32) {
             player.jump();
