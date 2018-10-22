@@ -4,6 +4,8 @@ import Entities.Player;
 import Entities.Tube;
 
 import java.awt.*;
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 
 import static java.awt.Color.*;
 
@@ -24,7 +26,6 @@ public class Game extends Canvas {
     }
 
     public void paint(Graphics g) {
-
         PLAYER.update(this);
 
         TOP.render(g);
@@ -36,6 +37,9 @@ public class Game extends Canvas {
         PLAYER.render(g);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
         g.drawString(Integer.toString(score), 25, 25);
+
+
+        // repaint();
 
     }
 

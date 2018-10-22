@@ -4,6 +4,7 @@ import States.Game;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -20,20 +21,22 @@ public class Player {
     private float ySpeed;
     private BufferedImage img = null;
 
+    GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+    GraphicsDevice device = env.getDefaultScreenDevice();
+    GraphicsConfiguration config = device.getDefaultConfiguration();
+    Graphics2D g2;
+
     public Player(int width, int height) {
         this.y = 250;
         this.W = width;
         this.H = height;
         this.ySpeed = 0;
 
-        GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice device = env.getDefaultScreenDevice();
-        GraphicsConfiguration config = device.getDefaultConfiguration();
+
         // img = new BufferedImage(50, 50, BufferedImage.TYPE_INT_RGB);
         img = config.createCompatibleImage(50, 50 , Transparency.TRANSLUCENT);
-        Graphics2D g2 = img.createGraphics();
-        g2.setColor(red);
-        g2.fillRect(0, 0, 50, 50);
+        g2 = img.createGraphics();
+
 
         /*try {
             img = ImageIO.read(new File("C:/Users/hodgk/IdeaProjects/FlappyJava/out/production/FlappyJava/Assets/Bird.png"));
@@ -86,10 +89,22 @@ public class Player {
         return this.H;
     }
 
+    private void cacheImg(){
+        try {
+            img = ImageIO.read(new File("C:/Users/hodgk/IdeaProjects/FlappyJava/out/production/FlappyJava/Assets/Bird.png"));
+        } catch(IOException e) {
+            System.out.println("Error reading");
+        }
+
+    }
+
+
     public void render(Graphics g) {
         //g.setColor(red);
         //g.fillRect(X, this.y, this.W, this.H);
-
+        /*g2.setColor(red);
+        g2.fillRect(0, 0, 50, 50);*/
+        cacheImg();
         g.drawImage(this.img, X, this.y, null);
 
     }

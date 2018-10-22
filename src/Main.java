@@ -42,18 +42,19 @@ class Main {
 
         Timer timer = new Timer();
         // renders screen every frame
+
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 GAME.createBufferStrategy(2);
                 GAME.repaint();
-                if (GAME.collideTube()) {
-                    frame.remove(GAME);
-                    frame.add(MENU);
-                    MENU.setScore(GAME.getScore());
-                    MENU.repaint();
-                    timer.cancel();
-                }
+                //if (GAME.collideTube()) {
+                    //frame.remove(GAME);
+                    //frame.add(MENU);
+                    //MENU.setScore(GAME.getScore());
+                    //MENU.repaint();
+                    //timer.cancel();
+                //}
             }
         }, 1000, 1000 / FPS);
     }
