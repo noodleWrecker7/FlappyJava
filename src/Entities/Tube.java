@@ -3,6 +3,7 @@ package Entities;
 import States.Game;
 
 import java.awt.*;
+import java.time.chrono.MinguoChronology;
 import java.util.Random;
 
 import static java.awt.Color.blue;
@@ -13,12 +14,16 @@ public class Tube {
     private static final int SPEED = 2;
     private int xLeft;
     private final int topHeight, yBottom;
+    private final int TUBE_BUFFER = 50;
+    private final int MIN_GAP = 180;
+    private final int MAX_GAP = 230;
+
 
     public Tube(Game f) {
         Random rand = new Random();
         this.xLeft = f.getWidth();
-        int yGap = rand.nextInt(120) + 150;
-        this.topHeight = rand.nextInt(230) + 75;
+        int yGap = rand.nextInt(MAX_GAP - MIN_GAP) + MIN_GAP;
+        this.topHeight = rand.nextInt(f.getHeight() - (TUBE_BUFFER*2) - yGap) + TUBE_BUFFER;
         this.yBottom = topHeight + yGap;
     }
 

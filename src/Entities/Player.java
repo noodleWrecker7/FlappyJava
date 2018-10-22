@@ -12,7 +12,7 @@ public class Player {
     private int y;
     private final int W, H;
     private static final int JUMP_SPEED = -5;
-    private static final float GRAVITY = 0.15f;
+    private static final float GRAVITY = 0.14f;
     private float ySpeed;
 
 
