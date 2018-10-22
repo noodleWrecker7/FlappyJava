@@ -5,4 +5,8 @@
 
 *.xml
 
+*.jar
+
+out/*
+
 out/production/FlappyJava/manifest\.txt
