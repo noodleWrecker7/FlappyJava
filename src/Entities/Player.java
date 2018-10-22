@@ -2,7 +2,11 @@ package Entities;
 
 import States.Game;
 
-import java.awt.Graphics;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 import static java.awt.Color.*;
 
@@ -14,12 +18,35 @@ public class Player {
     private static final int JUMP_SPEED = -5;
     private static final float GRAVITY = 0.14f;
     private float ySpeed;
+    private BufferedImage img = null;
 
     public Player(int width, int height) {
         this.y = 250;
         this.W = width;
         this.H = height;
         this.ySpeed = 0;
+
+        GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice device = env.getDefaultScreenDevice();
+        GraphicsConfiguration config = device.getDefaultConfiguration();
+        // img = new BufferedImage(50, 50, BufferedImage.TYPE_INT_RGB);
+        img = config.createCompatibleImage(50, 50 , Transparency.TRANSLUCENT);
+        Graphics2D g2 = img.createGraphics();
+        g2.setColor(red);
+        g2.fillRect(0, 0, 50, 50);
+
+        /*try {
+            img = ImageIO.read(new File("C:/Users/hodgk/IdeaProjects/FlappyJava/out/production/FlappyJava/Assets/Bird.png"));
+        } catch(IOException e) {
+            System.out.println("Error reading");
+        }*/
+
+        try {
+            ImageIO.write(img, "jpg",new File("file.jpg"));
+            //g2.dispose();
+        } catch (Exception e) {
+            System.out.println("Error saving");
+        }
     }
 
     public void jump() {
@@ -60,7 +87,10 @@ public class Player {
     }
 
     public void render(Graphics g) {
-        g.setColor(red);
-        g.fillRect(X, this.y, this.W, this.H);
+        //g.setColor(red);
+        //g.fillRect(X, this.y, this.W, this.H);
+
+        g.drawImage(this.img, X, this.y, null);
+
     }
 }
