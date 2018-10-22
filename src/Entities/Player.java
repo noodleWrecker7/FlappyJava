@@ -15,7 +15,6 @@ public class Player {
     private static final float GRAVITY = 0.14f;
     private float ySpeed;
 
-
     public Player(int width, int height) {
         this.y = 250;
         this.W = width;
