@@ -15,8 +15,8 @@ class Main {
     private static final int FPS = Game.FPS;
 
     public static void main(String args[]) {
-        JFrame frame = new JFrame("Title");
 
+        JFrame frame = new JFrame("Title");
         frame.add(GAME);
         frame.pack();
         frame.setVisible(true);
@@ -46,7 +46,7 @@ class Main {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                GAME.createBufferStrategy(2);
+                //GAME.createBufferStrategy(2);
                 GAME.repaint();
                 //if (GAME.collideTube()) {
                     //frame.remove(GAME);

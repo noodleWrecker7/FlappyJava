@@ -72,7 +72,16 @@ public class Game extends Canvas {
     }
 
     public void update(Graphics g) {
-        paint(g);
+        Graphics offgc;
+        Image offscreen = null;
+        Dimension d = size();
+
+        offscreen = createImage(d.width, d.height);
+        offgc = offscreen.getGraphics();
+
+        paint(offgc);
+
+        g.drawImage(offscreen, 0, 0, this);
     }
 
     public void keyDown(int e) {

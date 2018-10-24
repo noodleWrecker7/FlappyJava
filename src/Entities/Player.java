@@ -19,12 +19,11 @@ public class Player {
     private static final int JUMP_SPEED = -5;
     private static final float GRAVITY = 0.14f;
     private float ySpeed;
-    private BufferedImage img = null;
+    private BufferedImage img;
 
     GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
     GraphicsDevice device = env.getDefaultScreenDevice();
     GraphicsConfiguration config = device.getDefaultConfiguration();
-    Graphics2D g2;
 
     public Player(int width, int height) {
         this.y = 250;
@@ -35,14 +34,6 @@ public class Player {
 
         // img = new BufferedImage(50, 50, BufferedImage.TYPE_INT_RGB);
         img = config.createCompatibleImage(50, 50 , Transparency.TRANSLUCENT);
-        g2 = img.createGraphics();
-
-
-        /*try {
-            img = ImageIO.read(new File("C:/Users/hodgk/IdeaProjects/FlappyJava/out/production/FlappyJava/Assets/Bird.png"));
-        } catch(IOException e) {
-            System.out.println("Error reading");
-        }*/
 
         try {
             ImageIO.write(img, "jpg",new File("file.jpg"));
@@ -100,10 +91,6 @@ public class Player {
 
 
     public void render(Graphics g) {
-        //g.setColor(red);
-        //g.fillRect(X, this.y, this.W, this.H);
-        /*g2.setColor(red);
-        g2.fillRect(0, 0, 50, 50);*/
         cacheImg();
         g.drawImage(this.img, X, this.y, null);
 
