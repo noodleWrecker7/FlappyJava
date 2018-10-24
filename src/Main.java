@@ -46,7 +46,7 @@ class Main {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                //GAME.createBufferStrategy(2);
+                GAME.createBufferStrategy(2);
                 GAME.repaint();
                 //if (GAME.collideTube()) {
                     //frame.remove(GAME);

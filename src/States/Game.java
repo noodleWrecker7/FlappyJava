@@ -33,14 +33,9 @@ public class Game extends Canvas {
         MID.render(g);
 
         manageTubes(g);
-
-        PLAYER.render(g);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
         g.drawString(Integer.toString(score), 25, 25);
-
-
-        // repaint();
-
+        PLAYER.render(g);
     }
 
     private void manageTubes(Graphics g) {
@@ -73,7 +68,7 @@ public class Game extends Canvas {
 
     public void update(Graphics g) {
         Graphics offgc;
-        Image offscreen = null;
+        Image offscreen;
         Dimension d = size();
 
         offscreen = createImage(d.width, d.height);
